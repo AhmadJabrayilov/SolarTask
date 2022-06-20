@@ -1,0 +1,310 @@
+﻿@model HomeVM
+@{
+    ViewData["Title"] = "Index";
+}
+
+     <!-- Main start -->
+     <main>
+    <section id="slider">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">♦
+            @foreach (var item in Model.sliders)
+           {
+          <div class="carousel-item active " style="height: 100vh;min-height: 400px; ">
+            <img src="~/assets/img/@item.ImageUrl" class="d-block w-100 h-100" alt="..." style="position: relative;">
+            <div class="slider-content" style="position: absolute; top: 50%; left: 50%;">
+                <h4 class="slider-sub-title">@item.SubTitle</h4>
+                @Html.Raw(item.Title)
+                <a href="#" class="btn btn-light px-4 py-3">Get a Quote</a>
+            </div>
+          </div>
+               
+           }
+        </div>
+
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+       
+       
+    </section>
+
+    <!-- Card start -->
+    <div class="container">
+        <div class="card mb-3 card-about" >
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img src="~/assets/img/@Model.about.ImageUrl" class="img-fluid rounded-start" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body px-5">
+                  <h6 class="card-title pb-4" style="font-size: 1.6rem;">@Model.about.ExpTitle</h6>
+                  @Html.Raw(Model.about.Exp)
+                  <p class="card-text" style="font-size: 1.6rem;">@Model.about.ExpDesc</p>
+                  <div class="read-more">
+
+                      <a href="#" class="btn btn-primary py-4 px-5" style="font-size: 1.6rem;">Read More</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+    
+    <!-- Card end -->
+
+    <section id="services">
+        <div class="container">
+        <div class="services">
+            <h4>SERVICES</h4>
+            <h2>What We Cover</h2>
+        </div>
+    </div>
+    <div class="services-cards">
+      <div class="container">
+        <div class="row">
+          <div class="card-flex d-flex">
+              @foreach (var item in Model.services)
+              {
+                  
+                 <div class="card clo-4 px-4 border-0" >
+            <img src="~/assets/img/@item.ImageUrl" class="card-img-top" alt="...">
+            <div class="card-body text-center">
+              <h4 class="services-card-title">@item.Title</h4>
+            </div>
+          </div>
+              }
+          
+        </div>
+      </div>
+      </div>
+    </div>
+
+    </section>
+
+    <section id="team">
+      <div class="container">
+        <div class="row">
+          <div class="team-titles d-flex flex-column text-center">
+          <h4>TEAM</h4>
+          <h2>Meet The Team</h2>
+        </div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+            @foreach (var item in Model.team)
+           {
+               
+          <div class="card-container d-flex">
+          <div class="employe-card clo-6 d-flex">
+            <div class="employe-text col-6 d-flex flex-column align-items- justify-content-center text-center">
+              <h3 class="emp-name">@item.Name1</h3>
+              <span class="emp-position">@item.position1</span>
+              <p class="emp-text">@item.EmpDesc1</p>
+              <ul class="emp-socials d-flex tex justify-content-center">
+                <li class="social-item px-4"><a href="#">
+                  <i class="fa-brands fa-twitter"></i>
+                </a></li>
+                <li class="social-item px-4 mx-4"><a href="#">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a></li>
+                <li class="social-item px-4"><a href="#">
+                  <i class="fa-brands fa-linkedin-in"></i>  
+                </a></li>
+              </ul>
+            </div>
+            <div class="employe-card-content col-6">
+              <img src="~/assets/img/@item.ImageUrl1" alt="">
+            </div>
+
+          </div>
+          <div class="empty-area col-6"></div>
+        </div>
+           }
+
+        <!-- !!!!! -->
+        @foreach (var item in Model.team2)
+       {
+           
+        <div class="card-container d-flex">
+          <div class="empty-area col-6"></div>
+          <div class="employe-card clo-6 d-flex">
+            <div class="employe-card-content col-6 px-4">
+              <img src="~/assets/img/@item.ImageUrl2" alt="">
+            </div>
+            <div class="employe-text col-6 d-flex flex-column align-items- justify-content-center text-center">
+              <h3 class="emp-name">@item.Name2</h3>
+              <span class="emp-position"><em>@item.position2</em></span>
+              <p class="emp-text">@item.EmpDesc2</p>
+              <ul class="emp-socials d-flex tex justify-content-center">
+                <li class="social-item px-4"><a href="#">
+                  <i class="fa-brands fa-twitter"></i>
+                </a></li>
+                <li class="social-item px-4 mx-4"><a href="#">
+                  <i class="fa-brands fa-facebook-f"></i>
+                </a></li>
+                <li class="social-item px-4"><a href="#">
+                  <i class="fa-brands fa-linkedin-in"></i>  
+                </a></li>
+              </ul>
+            </div>
+            
+
+          </div>
+         
+        </div>
+       }
+        <!-- !! -->
+     
+        </div>
+      </div>
+    </section>
+
+    <section id="faqs">
+      <div class="container">
+        <div class="row">
+          <div class="faqs-titles text-center">
+            <h3>FAQS</h3>
+            <h2>You Should Know</h2>
+          </div>
+          <div class="quations-area d-flex flex-column align-items-center">
+            <div class="qutions-button d-flex">
+          <div class="left-quations col-6">
+            <h3 class="left-quations-title">Why Switch to Solar?</h3>
+            <ul class="left-quations-list">
+              <li>Vero dolor amet no eos ipsum erat<i class="fa-solid fa-check"></i></li>
+              <li>Lorem tempor tempor gubergren dolor dolor<i class="fa-solid fa-check"></i></li>
+              <li>Nonumy tempor dolores sadipscing duo<i class="fa-solid fa-check"></i>
+              </li>
+              <li>Kasd dolor ea dolores ut nonumy<i class="fa-solid fa-check"></i>
+              </li>
+            </ul>
+          </div>
+
+          <div class="right-quations col-6">
+            <h3 class="right-quations-title">Why Switch to Solar?</h3>
+            <ul class="right-quations-list">
+              <li><i class="fa-solid fa-check"></i>Vero dolor amet no eos ipsum erat</li>
+              <li><i class="fa-solid fa-check"></i>Lorem tempor tempor gubergren dolor </li>
+              <li><i class="fa-solid fa-check"></i>Nonumy tempor dolores sadipscing duo
+              </li>
+              <li><i class="fa-solid fa-check"></i>Kasd dolor ea dolores ut nonumy
+              </li>
+            </ul>
+          </div>
+        </div>
+          <div class="faqs-button">
+            <a href="#" class="btn btn-primary ">Get A Quote</a>
+          </div>
+        </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Slider start -->
+    
+    <section class="testimonial text-center">
+      <div class="container">
+
+          <div class="heading white-heading">
+              Testimonial
+          </div>
+          <div id="testimonial4" class="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
+           
+              <div class="carousel-inner" role="listbox">
+                  <div class="carousel-item active">
+                      <div class="testimonial4_slide">
+                          <img src="~/assets/img/testimonial-1.jpg" class="img-circle img-responsive" />
+                          <p style="color: black;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                          <h4>Client 1</h4>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                      <div class="testimonial4_slide">
+                          <img src="~/assets/img/testimonial-2.jpg" class="img-circle img-responsive" /><p style="color: black;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
+                          <h4>Client 2</h4>
+                      </div>
+                  </div>
+              
+              </div>
+              <a class="carousel-control-prev text-dark" href="#testimonial4" data-slide="prev">
+                  <span class="carousel-control-prev-icon"></span>
+              </a>
+              <a class="carousel-control-next text-dark" href="#testimonial4" data-slide="next">
+                  <span class="carousel-control-next-icon"></span>
+              </a>
+          </div>
+      </div>
+  </section>
+
+    <!-- Slider end -->
+    <!-- Form start -->
+    <section id="form">
+      <div class="container">
+        <div class="row">
+          <div class="form-tittles d-flex justify-content-center flex-column text-center">
+            <h3>CONTACT</h3>
+            <h2>Get In Touch</h2>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container">
+        <div class="row">
+            <h1>contact us</h1>
+        </div>
+        <div class="row">
+            <h4 style="text-align:center">We'd love to hear from you!</h4>
+        </div>
+        <div class="row input-container form-item-area">
+            <div class="col-xs-12">
+              <div class="styled-input wide">
+                <input type="text" required />
+                <label>Name</label> 
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="styled-input">
+                <input type="text" required />
+                <label>Email</label> 
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-12">
+              <div class="styled-input" style="float:right;">
+                <input type="text" required />
+                <label>Phone Number</label> 
+              </div>
+            </div>
+            <div class="col-xs-12">
+              <div class="styled-input wide">
+                <textarea required></textarea>
+                <label>Message</label>
+              </div>
+            </div>
+            <div class="col-xs-12 text-center ">
+              <div class="btn-lrg submit-btn">Send Message</div>
+            </div>
+        </div>
+      </div>
+      
+      <!-- Form end -->
+      
+      
+      
+    </section>
+    
+  </main>
+    
+    <!-- Main end -->
+
